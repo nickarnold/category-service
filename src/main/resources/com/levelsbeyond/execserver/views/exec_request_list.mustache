@@ -1,0 +1,37 @@
+{{<layout}}
+{{$content}}
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Command</th>
+		<th>Path</th>
+		<th>Requested By</th>
+		<th>Result Code</th>
+		<th>Created</th>
+		<th>Started</th>
+		<th>Completed</th>
+	</tr>
+	{{#execRequests}}
+		<tr>
+			<td><a href="/exec_requests/{{id}}">{{id}}</td>
+			<td>{{command}}</td>
+			<td>{{execPath}}</td>
+			<td>{{requestor}}</td>
+			<td>{{resultCode}}</td>
+			<td>{{created}}</td>
+			<td>{{startTime}}</td>
+			<td>{{endTime}}</td>
+		</tr>
+	{{/execRequests}}
+	{{^execRequests}}
+	<tr>
+		<td span="8">No Requests</td>
+	</tr>
+	{{/execRequests}}
+</table>
+<br>
+<form action="/exec_requests/new">
+	<input type="submit" value="New"/>
+</form>
+{{/content}}
+{{/layout}}

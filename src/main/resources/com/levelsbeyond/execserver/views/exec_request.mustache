@@ -1,0 +1,23 @@
+{{<layout}}
+{{$content}}
+<form action="/exec_requests" method="post">
+<table>
+	<tr>
+		<td>Command:</td>
+		<td>
+			<select name="commandId">
+			{{#commands}}
+			<option value="{{id}}">{{name}}</option>
+			{{/commands}}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Params:</td>
+		<td><textarea name="params" cols="100" rows="4">{{execRequest.params}}</textarea></td>
+	</tr>
+</table>
+<input type="submit" value="Save"/>
+</form>
+{{/content}}
+{{/layout}}

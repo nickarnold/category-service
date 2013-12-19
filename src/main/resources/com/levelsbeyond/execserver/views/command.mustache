@@ -1,0 +1,22 @@
+{{<layout}}
+{{$content}}
+<form action="/commands" method="post">
+<input type="hidden" name="id" value="{{command.id}}"/>
+<table>
+	<tr>
+		<td>Name:</td>
+		<td><input type="text" name="name" value="{{command.name}}"/></td>
+	</tr>
+	<tr>
+		<td>Exec Path:</td>
+		<td><input type="text" name="execPath" value="{{command.execPath}}"/></td>
+	</tr>
+	<tr>
+		<td>Enabled:</td>
+		<td><input type="checkbox" name="enabled" checked="{{command.enabled}}" defaultChecked="true"/></td>
+	</tr>
+</table>
+<input type="submit" value="Save"/>
+</form>
+{{/content}}
+{{/layout}}

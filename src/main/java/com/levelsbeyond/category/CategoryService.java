@@ -13,8 +13,10 @@ import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 import com.yammer.dropwizard.db.DatabaseConfiguration;
 import com.yammer.dropwizard.hibernate.HibernateBundle;
+import com.yammer.dropwizard.hibernate.SessionFactoryHealthCheck;
 import com.yammer.dropwizard.migrations.MigrationsBundle;
 import com.yammer.dropwizard.views.ViewBundle;
+import com.yammer.metrics.util.DeadlockHealthCheck;
 
 public class CategoryService extends Service<CategoryServiceConfiguration> {
     public static void main(String[] args) throws Exception {
@@ -65,7 +67,9 @@ public class CategoryService extends Service<CategoryServiceConfiguration> {
 
         //final Template template = configuration.buildTemplate();
 
-        //environment.addHealthCheck(new TemplateHealthCheck(template));
+		environment.addHealthCheck(new SessionFactoryHealthCheck("DB Check", hibernateBundle.getSessionFactory(), "SELECT CURRENT_TIME"));
+		environment.addHealthCheck(new DeadlockHealthCheck());
+
         environment.addResource(new CategoryResource(commandDAO));
 
 		environment.getJerseyResourceConfig().add(new CategoryServiceApplication());

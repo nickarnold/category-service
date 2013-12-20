@@ -169,15 +169,16 @@ public class CategoryResource {
     }
 
 	@PUT
+	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@UnitOfWork
-	public Response saveJson(@Auth Authentication user, CategoryDTO categoryDto) {
+	public Response saveJson(@Auth Authentication user, @PathParam("id") Integer id, CategoryDTO categoryDto) {
 
 		Category category = categoryDto.toCategory();
 		category = categoryDAO.save(category);
 
-		return Response.seeOther(URI.create("/categories")).build();
+		return Response.ok().build();
 	}
 
 

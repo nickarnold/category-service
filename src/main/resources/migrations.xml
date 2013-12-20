@@ -7,39 +7,14 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
     <changeSet id="1" author="dave">
-        <createTable tableName="command">
+        <createTable tableName="category">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="exec_path" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="enabled" type="boolean" defaultValueBoolean="true"/>
-            <column name="date_created" type="datetime"/>
         </createTable>
-    </changeSet>
-    <changeSet id="2" author="dave">
-    	<createTable tableName="exec_request">
-        	<column name="id" type="int" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-        	</column>
-            <column name="requestor" type="varchar(255)"/>
-            <column name="command" type="varchar(255)"/>
-            <column name="exec_path" type="varchar(255)"/>
-            <column name="params" type="text"/>
-            <column name="result_code" type="int"/>
-            <column name="std_out" type="text"/>
-            <column name="std_err" type="text"/>
-            <column name="date_created" type="datetime"/>
-            <column name="start_time" type="datetime"/>
-            <column name="end_time" type="datetime"/>
-        </createTable>
-    </changeSet>
-    <changeSet id="3" author="dave">
-    	<addUniqueConstraint tableName="command" columnNames="name"/>
     </changeSet>
         	
 </databaseChangeLog>

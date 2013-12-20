@@ -1,0 +1,14 @@
+{{<layout}}
+{{$content}}
+<form action="/categories" method="post" role="form">
+	<input type="hidden" name="id" value="{{category.id}}"/>
+	<div class="form-group">
+    	<label for="name">Name</label>
+    	<input type="text" class="form-control" name="name" id="name" placeholder="Enter category name" value="{{category.name}}">
+  	</div>
+  	
+	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="button" class="btn btn-default" onClick="window.history.back()">Cancel</button>
+</form>
+{{/content}}
+{{/layout}}

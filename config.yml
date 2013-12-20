@@ -14,13 +14,15 @@ database:
   password: sa
 
   # the JDBC URL
-  url: jdbc:h2:levelsbeyond/exec_server
+  url: jdbc:h2:levelsbeyond/category-service
 
 # HTTP-specific options.
 http:
+  contextParameters:
+    javax.ws.rs.Application: com.levelsbeyond.category.application.CategoryServiceApplication
 
   # The port on which the HTTP server listens for service requests.
-  port: 8888
+  port: 8899
 
   # The port on which the HTTP server listens for administrative requests.
   adminPort: 8081
@@ -170,11 +172,11 @@ logging:
     threshold: ALL
 
     # The file to which statements will be logged.
-    currentLogFilename: ./logs/exec-server.log
+    currentLogFilename: ./logs/category-service.log
 
     #  When the log file rolls over, the file will be archived to example-2012-03-15.log.gz,
     # example.log will be truncated, and new statements written to it.
-    archivedLogFilenamePattern: ./logs/exec-server-%d.log.gz
+    archivedLogFilenamePattern: ./logs/category-service-%d.log.gz
 
     # The maximum number of log files to archive.
     archivedFileCount: 5

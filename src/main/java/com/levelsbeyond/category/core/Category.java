@@ -9,12 +9,14 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
 
 @Entity
 @Table(name = "category")
 @Data
+@AllArgsConstructor
 @NamedQueries({
     @NamedQuery(
 				name = "com.levelsbeyond.category.core.Category.findAll",
@@ -30,6 +32,7 @@ public class Category {
     @NonNull 
     private String name;
 
-    // for unmarshalling
-    public Category() {}
+	public Category() {
+	}
+
 }

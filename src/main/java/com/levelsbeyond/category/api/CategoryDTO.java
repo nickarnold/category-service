@@ -3,16 +3,15 @@ package com.levelsbeyond.category.api;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.levelsbeyond.category.core.Category;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @JsonAutoDetect
 @Data
+@AllArgsConstructor
 public class CategoryDTO {
 	private Integer id;
-	@NotEmpty
-	private String name;
+	public String name;
 
 	public CategoryDTO() {
 	}
@@ -29,4 +28,5 @@ public class CategoryDTO {
 
 		return c;
 	}
+
 }

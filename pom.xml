@@ -51,6 +51,10 @@
 			<id>repo.codahale.com</id>
 			<url>http://repo.codahale.com/</url>
 		</repository>
+		<repository>
+			<id>LB-repository</id>
+			<url>http://dev.levelsbeyond.com:8080/nexus/content/groups/public</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -72,6 +76,11 @@
 		<dependency>
 			<groupId>com.yammer.dropwizard</groupId>
 			<artifactId>dropwizard-views</artifactId>
+			<version>${dw-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yammer.dropwizard</groupId>
+			<artifactId>dropwizard-testing</artifactId>
 			<version>${dw-version}</version>
 		</dependency>
 		<dependency>
